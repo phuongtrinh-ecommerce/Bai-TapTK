@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/bootstrap.min.css">
+    <script src="../JS/jquery-3.7.1.min.js"></script>
+    <script src="../JS/bootstrap.min.js"></script>
+    <style>
+        [class*=col-] {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        li a {
+            color: rgb(134, 130, 125);
+        }
+        
+        h3 {
+            text-align: center;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#dky").click(function(e) {
+                $("#myModal").modal();
+            });
+
+            function kiemtraMaTV() {
+                var mauKT = /K16-[0-9]{9}$/;
+                var chuoiMaTV = $("#txtMaTV").val();
+                var kq = mauKT.test(chuoiMaTV);
+                if (kq == true) {
+                    alert("Nhap dung mau");
+                } else {
+                    alert("Nhap sai mau");
+                }
+
+            }
+            $("#txtMaTV").blur(kiemtraMaTV);
+
+            function kiemtraHoTen() {
+                var mauKT = /^[A-Z]{1}[a-z]+(\s[A-Z]{1}[a-z]*)+$/;
+                var chuoiHoTen = $("#txtHoTen").val();
+                var kq = mauKT.test(chuoiHoTen);
+                if (kq == true) {
+                    alert("Nhap dung mau");
+                } else {
+                    alert("Nhap sai mau");
+                }
+
+            }
+            $("#txtHoTen").blur(kiemtraHoTen);
+
+            function kiemtraLop() {
+                var mauKT = /[A-Z]{6}[0-9]{2}[A-Z]{3}$/;
+                var chuoiLop = $("#txtLop").val();
+                var kq = mauKT.test(chuoiLop);
+                if (kq == true) {
+                    alert("Nhap dung mau");
+                } else {
+                    alert("Nhap sai mau");
+                }
+
+            }
+            $("#txtLop").blur(kiemtraLop);
+
+            function kiemtraSdt() {
+                var mauKT = /^0[0-9]{3}-[0-9]{3}-[0-9]{3}$/;
+                var chuoiSdt = $("#txtSdt").val();
+                var kq = mauKT.test(chuoiSdt);
+                if (kq == true) {
+                    alert("Nhap dung mau");
+                } else {
+                    alert("Nhap sai mau");
+                }
+
+            }
+            $("#txtSdt").blur(kiemtraSdt);
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container bg-light">
+        <div class="row">
+            <header>
+                <div class="col-3 col-md-3">
+                    <img src="../HEADER.PNG" alt="scrset" width="1145PX">
+                </div>
+            </header>
+        </div>
+        <div class="row ">
+            <nav class="navbar navbar-expand ">
+                <ul class="navbar-nav ">
+                    <li class="nav-item "><a href="# " class="nav-link ">Đăng nhập</a></li>
+                    <li class="nav-item "><a href="# " class="nav-link " id="dky">Đăng ký</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div>
+            <h3>DANH SÁCH THAM GIA ĐỘI ROBOCON KHOA CNTT</h3>
+        </div>
+        <div class="row ">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th scope="col ">STT</th>
+                        <th scope="col ">Mã thành viên</th>
+                        <th scope="col ">Họ và tên</th>
+                        <th scope="col ">Lớp</th>
+                        <th scope="col ">Ngày tham gia</th>
+                        <th scope="col ">Điện thoại</th>
+                        <th scope="col ">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row ">1</th>
+                        <td>K16-123456789</td>
+                        <td>Tran Thanh Kha</td>
+                        <td>DHKTPM16ATT</td>
+                        <td>22/02/2022</td>
+                        <td>0909-123-123</td>
+                        <td>thanhkha@iuh.edu.vn</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row ">
+            <div class="modal fade" id="myModal">
+                <div class="model-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">THÔNG TIN CÁ NHÂN</h5>
+                            <button type="button" data-dismiss="modal">&times;</button>
+
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="forMaTV">Mã thành viên</label>
+                                    <input type="text" class="form-control" id="txtMaTV" aria-describedby="txtMaTV" placeholder="Mã: K16-123456789">
+                                </div>
+                                <div class="form-group">
+                                    <label for="forHoTen">Họ tên</label>
+                                    <input type="text" class="form-control" id="txtHoTen" aria-describedby="txtHoTen" placeholder="Họ tên: Trần Anh Dũng">
+                                </div>
+                                <div class="form-group">
+                                    <label for="forLop">Lớp</label>
+                                    <input type="text" class="form-control" id="txtLop" aria-describedby="txtLop" placeholder="Lớp: DHKTPM16ATT">
+                                </div>
+                                <div class="form-group">
+                                    <label for="forNgaytg">Ngày tham gia</label>
+                                    <input type="datetime" class="form-control" id="txtNgaytg" aria-describedby="Ngaytg" placeholder="mm/dd/yy">
+                                </div>
+                                <div class="form-group">
+                                    <label for="forSdt">Số điện thoại</label>
+                                    <input type="text" class="form-control" id="txtSdt" aria-describedby="txtSdt" placeholder="SDT: 0xxx-xxx-xxx">
+                                </div>
+                                <div class="form-group">
+                                    <label for="forEmail">Email</label>
+                                    <input type="email" class="form-control" id="txtEmail" aria-describedby="txtEmail" placeholder="Email: xxxxxx@iuh.edu.vn">
+                                </div>
+
+
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Lưu</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row "></div>
+    </div>
+</body>
+
+</html>
